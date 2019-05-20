@@ -83,7 +83,7 @@ Used for Posting a Ingredients
 | POST   | /Source             | Checks whether the payload from the body matches with the Source from the database
 | GET    | /Source             | Protected Route. Returns an array of categories                                                                                                                  
 | GET    | /Source/:id         |  Returns an array of objects for Sources   
-| GET    | /Source/:id/recipe  |  Returns an array all recipes from a given source (`not working yet`)                                                                                                                  
+| GET    | /Source/:id/recipe  |  Returns an array all recipes from a given source                                                                                                                  
 | DELETE | /Source/:id         | Deletes a Source by specific ID.                                                                                                                                  |
 
 ### Ingredient
