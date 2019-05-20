@@ -26,21 +26,22 @@ router.get("/:id",(req,res)=>{
     })
 })
 router.post("/",(req,res)=>{
-  const newSource = req.body;
-
-  db("source")
-  .insert(newSource)
-  .then(ids=>{
-    const id = ids[0]
     db("source")
-      .where({id})
-      .first()
-      .then(response=>{
-        res.status(201).json(response)
-      })
-  }).catch(err=>{
-    res.status(500).json(err)
-  })
+    .insert(req.body,"id")
+    .then(ids=>{
+        db("source")
+            .where({id:ids[0]})
+            .first()
+            .then(courseType=>{
+                res.status(201).json(courseType)
+            })
+            .catch(err=>{
+                res.status(500).json(err)
+            })
+    })
+    .catch(err=>{
+        res.status(500).json(err)
+    })
 })
 router.put('/:id', (req, res) => {
   db('source')

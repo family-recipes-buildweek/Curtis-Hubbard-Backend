@@ -13,22 +13,22 @@ router.get("/",(req,res)=>{
       })
 })
 router.post("/",(req,res)=>{
-const newRecipe = req.body;
-
-db("recipe")
-.insert(newRecipe)
-.then(ids=>{
-    const id = ids[0]
-    db("recipe")
-    .where({id})
-    .first()
-    .then(response=>{
-        res.status(201).json(response)
-    })
-}).catch(err=>{
-    res.status(500).json(err)
-})
-})
+  const newRecipe = req.body;
+  
+  db("recipe")
+  .insert(newRecipe)
+  .then(ids=>{
+      const id = ids[0]
+      db("recipe")
+      .where({id})
+      .first()
+      .then(response=>{
+          res.status(201).json(response)
+      })
+  }).catch(err=>{
+      res.status(500).json(err)
+  })
+  })
 router.put('/:id', (req, res) => {
 db('recipe')
     .where({ id: req.params.id })

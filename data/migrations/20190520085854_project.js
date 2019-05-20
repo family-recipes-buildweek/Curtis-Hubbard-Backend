@@ -20,7 +20,7 @@ exports.up = function(knex) {
       .increments() //primary key
     tbl
       .string("title",50) //description column
-      .notNullable()
+      //.notNullable()
     tbl
       .string("instructions")
   })
@@ -32,7 +32,7 @@ exports.up = function(knex) {
     tbl
       .integer("recipe_id")
       .unsigned()
-      .notNullable()
+      //.notNullable()
       .references('id')
       .inTable('recipe')
       .onDelete('RESTRICT')
@@ -44,7 +44,7 @@ exports.up = function(knex) {
     tbl
       .integer("recipe_id")
       .unsigned()
-      .notNullable()
+     // .notNullable()
       .references('id')
       .inTable('recipe')
       .onDelete('RESTRICT')
@@ -52,7 +52,7 @@ exports.up = function(knex) {
     tbl
       .integer("ingredient_id")
       .unsigned()
-      .notNullable()
+    //  .notNullable()
       .references('id')
       .inTable('ingredient')
       .onDelete('RESTRICT')
