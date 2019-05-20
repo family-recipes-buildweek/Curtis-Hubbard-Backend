@@ -58,7 +58,7 @@ Used for Posting a Ingredients
 | POST   | /login             | Checks whether the payload from the body matches with the user from the database. Returns a message and JWT token on successful login.                                           |
 | GET    | /recipe             | Protected Route. Returns an array of recipes                                                                                                                   |
 | GET    | /recipe/:id         |  Returns an array of objects for the recipes by ID
-| GET    | /recipe/:id/ingredient | Returns an array of recipe ingredients         |
+| GET    | /recipe/:id/ingredient | Returns an array of recipe ingredients (`not working yet`)         |
 | DELETE | /recipe/:id         | Deletes a recipe by specific ID.                                                                                                                                  |
 
 ---
