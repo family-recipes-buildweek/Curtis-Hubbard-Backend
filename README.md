@@ -70,7 +70,7 @@ Used for Posting a Ingredients
 | POST   | /category             | Checks whether the payload from the body matches with the category  from the database.
 | GET    | /category             | Protected Route. Returns an array of categories                                                                                                                  
 | GET    | /category/:id         | Returns an array of objects for categories   
-| GET    | /category/:id/recipe  | Returns an array showing all recipes with a category (`not working yet`)  
+| GET    | /category/:id/recipe  | Returns an array showing all recipes with a category  
 | DELETE | /category/:id         | Deletes a category by specific ID.                                                                                                                                  |
 
 

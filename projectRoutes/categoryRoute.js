@@ -27,9 +27,8 @@ db("category")
 })
 //------------------------------------------------
 router.get("/:id/recipe",(req,res)=>{
-    const categoryID = req.params.id;
 db("recipe")
-    .where({ recipe_id: categoryID })
+    .where({ category_id: req.params.id })
     .then(response=>{
         res.status(200).json(response)
     })
