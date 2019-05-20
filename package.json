@@ -1,0 +1,23 @@
+{
+  "name": "Curtis-Hubbard-Backend",
+  "version": "1.0.0",
+  "description": "--- ## What is secret-family-recipes?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/family-recipes-buildweek/Curtis-Hubbard-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/family-recipes-buildweek/Curtis-Hubbard-Backend/issues"
+  },
+  "homepage": "https://github.com/family-recipes-buildweek/Curtis-Hubbard-Backend#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
