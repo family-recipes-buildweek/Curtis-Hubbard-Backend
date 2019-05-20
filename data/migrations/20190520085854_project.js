@@ -1,43 +1,41 @@
 exports.up = function(knex) {
     return knex.schema
-.createTable("recipe",tbl=>{
-    tbl
-        .increments() //primary key
-    tbl
-        .string("title",50) //description column
-        //.notNullable()
-    tbl
-        .string("instructions")
-    })
   .createTable("category",tbl=>{
     tbl
       .increments() //primary key
     tbl
       .string("category",50) //description column
-     // .notNullable()
-    tbl
-      .integer("recipe_id")
-      .unsigned()
-      //.notNullable()
-      .references('id')
-      .inTable('recipe')
-      .onDelete('RESTRICT')
-      .onUpdate('RESTRICT')
+      .notNullable()
   })
   .createTable("source",tbl=>{
-    tbl.increments() //primary key
+     tbl.increments() //primary key
   
-    tbl.string("name",50) //description column
-       // .notNullable()
-    tbl
-      .integer("recipe_id")
-      .unsigned()
-      //.notNullable()
-      .references('id')
-      .inTable('recipe')
-      .onDelete('RESTRICT')
-      .onUpdate('RESTRICT')
+     tbl.string("name",50) //description column
+        .notNullable()
   })
+  .createTable("recipe",tbl=>{
+    tbl
+        .increments() //primary key
+    tbl
+        .string("title",50) //description column
+        .notNullable()
+    tbl
+        .string("instructions")//instruction column
+    tbl
+      .integer("source_id")//FK to source
+      .unsigned()
+      .references('id')
+      .inTable('source')
+      .onDelete('RESTRICT')
+      .onUpdate('CASCADE')
+    tbl
+      .integer("category_id")//FK to category
+      .unsigned()
+      .references('id')
+      .inTable('category')
+      .onDelete('RESTRICT')
+      .onUpdate('CASCADE')
+    })
   .createTable("ingredient",tbl=>{
     tbl
       .increments() //primary key
@@ -50,7 +48,6 @@ exports.up = function(knex) {
     tbl
       .integer("recipe_id")
       .unsigned()
-     // .notNullable()
       .references('id')
       .inTable('recipe')
       .onDelete('RESTRICT')
@@ -58,7 +55,6 @@ exports.up = function(knex) {
     tbl
       .integer("ingredient_id")
       .unsigned()
-    //  .notNullable()
       .references('id')
       .inTable('ingredient')
       .onDelete('RESTRICT')
@@ -70,7 +66,7 @@ exports.up = function(knex) {
     return knex.schema
         .dropTableIfExists('recipe_ingredients')
         .dropTableIfExists('ingredient')
+        .dropTableIfExists('recipe')
         .dropTableIfExists('source')
         .dropTableIfExists('category')
-        .dropTableIfExists('recipe')
   };
