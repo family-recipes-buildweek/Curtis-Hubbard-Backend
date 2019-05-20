@@ -4,7 +4,9 @@
   "description": "--- ## What is secret-family-recipes?",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env DB_ENV=testing jest --watch --verbose",
+    "server": "nodemon index.js",
+    "start": "cross-env node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,21 @@
   },
   "homepage": "https://github.com/family-recipes-buildweek/Curtis-Hubbard-Backend#readme",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.16.5",
+    "pg": "^7.11.0",
+    "sqlite3": "^4.0.8"
   }
 }
