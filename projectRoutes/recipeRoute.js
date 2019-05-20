@@ -12,6 +12,31 @@ router.get("/",(req,res)=>{
         res.status(500).json(err)
       })
 })
+router.get("/:id",(req,res)=>{
+  const recipeID = req.params.id
+
+  db("recipe")
+    .where({id: recipeID})
+    .first()
+    .then(response=>{
+      res.status(200).json(response)
+    })
+    .catch(err=>{
+      res.status(500).json(err)
+    })
+})
+//------------------------------------------------
+router.get("/:id/ingredient",(req,res)=>{
+db("recipe_ingredients")
+  .where({ recipe_id: ingredient_id })
+  .then(response=>{
+      res.status(200).json(response)
+  })
+  .catch(err=>{
+      res.status(500).json(err)
+  })
+})
+//------------------------------------------------
 router.post("/",(req,res)=>{
   const newRecipe = req.body;
   
@@ -46,19 +71,6 @@ db('recipe')
     res.status(500).json(err);
     });
 });
-router.get("/:id",(req,res)=>{
-    const recipeID = req.params.id
-  
-    db("recipe")
-      .where({id: recipeID})
-      .first()
-      .then(response=>{
-        res.status(200).json(response)
-      })
-      .catch(err=>{
-        res.status(500).json(err)
-      })
-})
 router.delete("/:id",(req,res)=>{
     db("recipe")
     .where({id: req.params.id})

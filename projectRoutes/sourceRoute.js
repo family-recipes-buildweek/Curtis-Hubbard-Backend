@@ -25,6 +25,19 @@ router.get("/:id",(req,res)=>{
       res.status(500).json(err)
     })
 })
+//------------------------------------------------
+router.get("/:id/recipe",(req,res)=>{
+  const sourceID = req.params.id;
+db("recipe")
+  .where({ recipe_id: sourceID })
+  .then(response=>{
+      res.status(200).json(response)
+  })
+  .catch(err=>{
+      res.status(500).json(err)
+  })
+})
+//------------------------------------------------
 router.post("/",(req,res)=>{
     db("source")
     .insert(req.body,"id")

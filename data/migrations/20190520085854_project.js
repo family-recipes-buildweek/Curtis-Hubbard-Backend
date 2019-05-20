@@ -5,11 +5,11 @@ exports.up = function(knex) {
       .increments() //primary key
     tbl
       .string("category",50) //description column
-      .notNullable()
+     // .notNullable()
     tbl
       .integer("recipe_id")
       .unsigned()
-      .notNullable()
+      //.notNullable()
       .references('id')
       .inTable('recipe')
       .onDelete('RESTRICT')
@@ -28,7 +28,7 @@ exports.up = function(knex) {
     tbl.increments() //primary key
   
     tbl.string("name",50) //description column
-        .notNullable()
+       // .notNullable()
     tbl
       .integer("recipe_id")
       .unsigned()

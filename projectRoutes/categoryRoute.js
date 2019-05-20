@@ -26,8 +26,16 @@ db("category")
     })
 })
 //------------------------------------------------
-router.get("/recipes",(req,res)=>{
-    db("")
+router.get("/:id/recipe",(req,res)=>{
+    const categoryID = req.params.id;
+db("recipe")
+    .where({ recipe_id: categoryID })
+    .then(response=>{
+        res.status(200).json(response)
+    })
+    .catch(err=>{
+        res.status(500).json(err)
+    })
 })
 //------------------------------------------------
 router.post("/",(req,res)=>{
