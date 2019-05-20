@@ -14,7 +14,6 @@ router.get("/",(req,res)=>{
 })
 router.get("/:id",(req,res)=>{
   const sourceID = req.params.id
-
   db("source")
     .where({id: sourceID})
     .first()
