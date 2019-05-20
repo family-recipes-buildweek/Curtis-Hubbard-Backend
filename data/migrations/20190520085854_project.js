@@ -1,5 +1,14 @@
 exports.up = function(knex) {
     return knex.schema
+.createTable("recipe",tbl=>{
+    tbl
+        .increments() //primary key
+    tbl
+        .string("title",50) //description column
+        //.notNullable()
+    tbl
+        .string("instructions")
+    })
   .createTable("category",tbl=>{
     tbl
       .increments() //primary key
@@ -15,15 +24,6 @@ exports.up = function(knex) {
       .onDelete('RESTRICT')
       .onUpdate('RESTRICT')
   })
-  .createTable("recipe",tbl=>{
-    tbl
-      .increments() //primary key
-    tbl
-      .string("title",50) //description column
-      //.notNullable()
-    tbl
-      .string("instructions")
-  })
   .createTable("source",tbl=>{
     tbl.increments() //primary key
   
@@ -37,6 +37,12 @@ exports.up = function(knex) {
       .inTable('recipe')
       .onDelete('RESTRICT')
       .onUpdate('RESTRICT')
+  })
+  .createTable("ingredient",tbl=>{
+    tbl
+      .increments() //primary key
+    tbl
+      .string("ingredient",100) //ingredient column
   })
   .createTable("recipe_ingredients",tbl=>{
     tbl
@@ -58,19 +64,13 @@ exports.up = function(knex) {
       .onDelete('RESTRICT')
       .onUpdate('RESTRICT')
   })
-  .createTable("ingredient",tbl=>{
-    tbl
-      .increments() //primary key
-    tbl
-      .string("ingredient",100) //ingredient column
-  })
   };
   
   exports.down = function(knex) {
     return knex.schema
-        .dropTableIfExists('ingredient')
         .dropTableIfExists('recipe_ingredients')
+        .dropTableIfExists('ingredient')
         .dropTableIfExists('source')
-        .dropTableIfExists('recipe')
         .dropTableIfExists('category')
+        .dropTableIfExists('recipe')
   };
