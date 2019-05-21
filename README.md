@@ -64,7 +64,7 @@ Used for Posting a Ingredients
 | ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | GET    | /api/recipe             | Protected Route. Returns an array of recipes                                                                                                                   |
 | GET    | /api/recipe/:id         |  Returns an objects for the recipe by ID
-| GET    | /api/recipe/:id/ingredient | Returns an array of recipe ingredients (`not working yet`)         |
+| GET    | /api/recipe/:id/ingredient | Returns an array of recipe ingredients         |
 | DELETE | /api/recipe/:id         | Deletes a recipe by specific ID.                                                                                                                                  |
 ---
 
