@@ -49,48 +49,51 @@ Used for Posting a Ingredients
 }
 ```
 ---
+### Login
+
+| Method | URL                | Description                                                                                                                                                                      |
+| ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | /api/register          | Creates a new User to the users table in the database.                                                                                                                           |
+| POST   | /api/login             | Checks whether the payload from the body matches with the user from the database. Returns a message and JWT token on successful login.                                           |
+| POST    | /api/logout             | Allows users to sign out when they are done                                                                                                                   |
+---
 
 ### Recipe
 
 | Method | URL                | Description                                                                                                                                                                      |
 | ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /register          | Creates a new User to the users table in the database.                                                                                                                           |
-| POST   | /login             | Checks whether the payload from the body matches with the user from the database. Returns a message and JWT token on successful login.                                           |
-| GET    | /recipe             | Protected Route. Returns an array of recipes                                                                                                                   |
-| GET    | /recipe/:id         |  Returns an array of objects for the recipes by ID
-| GET    | /recipe/:id/ingredient | Returns an array of recipe ingredients (`not working yet`)         |
-| DELETE | /recipe/:id         | Deletes a recipe by specific ID.                                                                                                                                  |
-
+| GET    | /api/recipe             | Protected Route. Returns an array of recipes                                                                                                                   |
+| GET    | /api/recipe/:id         |  Returns an objects for the recipe by ID
+| GET    | /api/recipe/:id/ingredient | Returns an array of recipe ingredients (`not working yet`)         |
+| DELETE | /api/recipe/:id         | Deletes a recipe by specific ID.                                                                                                                                  |
 ---
 
 ### category
 
 | Method | URL                | Description                                                                                                                                                                      |
 | ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /category             | Checks whether the payload from the body matches with the category  from the database.
-| GET    | /category             | Protected Route. Returns an array of categories                                                                                                                  
-| GET    | /category/:id         | Returns an array of objects for categories   
-| GET    | /category/:id/recipe  | Returns an array showing all recipes with a category  
-| DELETE | /category/:id         | Deletes a category by specific ID.                                                                                                                                  |
-
-
+| POST   | /api/category             | Allows for a new category to be created. payload shown above what is expected
+| GET    | /api/category             | Returns an array of categories                                                                         
+| GET    | /api/category/:id         | Returns a specific category based of its id 
+| GET    | /api/category/:id/recipe  | Returns an array showing all recipes within a category  
+| DELETE | /api/category/:id         | Deletes a category by specific ID.                                                                                                                                  |
 ---
 
 ### Source
 
 | Method | URL                | Description                                                                                                                                                                      |
 | ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /Source             | Checks whether the payload from the body matches with the Source from the database
-| GET    | /Source             | Protected Route. Returns an array of categories                                                                                                                  
-| GET    | /Source/:id         |  Returns an array of objects for Sources   
-| GET    | /Source/:id/recipe  |  Returns an array all recipes from a given source                                                                                                                  
-| DELETE | /Source/:id         | Deletes a Source by specific ID.                                                                                                                                  |
+| POST   | /api/source             | Checks whether the payload from the body matches with the Source from the database
+| GET    | /api/source             | Protected Route. Returns an array of categories                                                                                                                  
+| GET    | /api/source/:id         |  Returns an objects based off the Source id 
+| GET    | /api/source/:id/recipe  |  Returns an array all recipes from a given source                                                                                                                  
+| DELETE | /api/source/:id         | Deletes a Source by specific ID.                                                                                                                                  |
 
 ### Ingredient
 
 | Method | URL                | Description                                                                                                                                                                      |
 | ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /Ingredient             | Checks whether the payload from the body matches with the Ingredients from the database
-| GET    | /Ingredient             | Protected Route. Returns an array of Ingredients                                                                                                                  
-| GET    | /Ingredient/:id         |  Returns an array of objects for Ingredient                                                                                                                 
-| DELETE | /Ingredient/:id         |  Deletes an Ingredient by specific ID.                                                                                                                                  |
+| POST   | /api/ingredient             | Checks whether the payload from the body matches with the Ingredients from the database
+| GET    | /api/ingredient             | Protected Route. Returns an array of Ingredients                                                                                                                  
+| GET    | /api/ingredient/:id         |  Returns an object for a specific Ingredient ID                                                                                                                
+| DELETE | /api/ingredient/:id         |  Deletes an Ingredient by specific ID.                                                                                                                                  |
