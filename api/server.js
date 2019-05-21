@@ -17,7 +17,7 @@ server.use(helmet())
 server.use(cors())
 
 server.use("/api/source",sourceRouter)
-server.use("/api/category",categoryRouter)
+server.use("/api/category",authenticate,categoryRouter)
 server.use("/api/recipe",RecipeRouter)
 server.use("/api/ingredient",ingredientRouter)
 
