@@ -28,7 +28,7 @@ router.get("/:id",(req,res)=>{
 //------------------------------------------------
 router.get("/:id/ingredient",(req,res)=>{
 db("recipe_ingredients")
-  .where({ recipe_id: ingredient_id })
+  .where({ recipe_id: req.params.id })
   .then(response=>{
       res.status(200).json(response)
   })
