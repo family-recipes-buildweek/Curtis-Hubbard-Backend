@@ -1,5 +1,5 @@
 const { config, uploader } = require("cloudinary")
-const dotenv = require("dotenv").config()
+require("dotenv").config();
 
 const cloudinaryConfig = (req,res,next)=>{
     config({
