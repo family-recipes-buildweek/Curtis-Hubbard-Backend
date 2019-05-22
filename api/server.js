@@ -18,7 +18,10 @@ const server = express()
 
 server.use(express.json())
 server.use(helmet())
-server.use(cors())
+server.use(cors({
+    origin:'http://localhost:8000',
+    credentials:true
+    }))
 server.use(urlencoded({ extended: false }))
 server.use(express.static(resolve(__dirname, 'src/public')))
 server.use(urlencoded({ extended: false }))
@@ -50,5 +53,15 @@ server.post('/upload', multerUploads, (req, res) => {
         }))
     }
 });
+
+server.get("/api/ingredient",(req,res)=>{
+    db("ingredient")
+      .then(response=>{
+        res.status(200).json(response)
+      })
+      .catch(err=>{
+        res.status(500).json(err)
+      })
+})
 configureRoutes(server);
 module.exports = server
