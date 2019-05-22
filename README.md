@@ -12,8 +12,18 @@
 Used for register and login
 ```js
 {
-  "username": "userName",
-  "password": "password"
+  "username": "USERNAME_HERE",
+  "password": "PASSWORD_HERE"
+}
+```
+---
+Used for Posting an image
+```js
+{
+    "messge": "Your image has been uploded successfully to cloudinary",
+    "data": {
+        "image": "IMAGE_URL_HERE"
+    }
 }
 ```
 ---
@@ -21,8 +31,8 @@ Used for register and login
 Used for Posting a recipe
 ```js
 { 
-  "Title": "title",
-  "instructions": "instruction"
+  "Title": "TITLE_HERE",
+  "instructions": "INSTRUCTION_HERE"
 }
 ```
 ---
@@ -30,7 +40,7 @@ Used for Posting a recipe
 Used for Posting a Source
 ```js
 {
-  "nameOfSource": "nameOfSource",
+  "name": "NAME_HERE",
 }
 ```
 ---
@@ -38,14 +48,14 @@ Used for Posting a Source
 Used for Posting a Category
 ```js
 {
-  "Category": "Category",
+  "Category": "CATEGORY_HERE",
 }
 ```
 ---
-Used for Posting a Ingredients
+Used for Posting an Ingredient
 ```js
 {
-  "Ingredients": "Ingredients",
+  "Ingredients": "INGREDIENT_HERE",
 }
 ```
 ---
@@ -56,6 +66,12 @@ Used for Posting a Ingredients
 | POST   | /api/register          | Creates a new User to the users table in the database.                                                                                                                           |
 | POST   | /api/login             | Checks whether the payload from the body matches with the user from the database. Returns a message and JWT token on successful login.                                           |
 | POST    | /api/logout             | Allows users to sign out when they are done                                                                                                                   |
+---
+### Image
+
+| Method | URL                | Description                                                                                                                                                                      |
+| ------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | /api/upload          | upload a picture for a recipe.                                                                                                                           |
 ---
 
 ### Recipe
