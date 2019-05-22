@@ -18,7 +18,10 @@ const server = express()
 
 server.use(express.json())
 server.use(helmet())
-server.use(cors({credentials:true}))
+server.use(cors({
+    origin:'http://localhost:3000',
+    credentials:true
+    }))
 server.use(urlencoded({ extended: false }))
 server.use(express.static(resolve(__dirname, 'src/public')))
 server.use(urlencoded({ extended: false }))
