@@ -61,7 +61,6 @@ exports.up = function(knex) {
       .onUpdate('RESTRICT')
   })
   };
-
   exports.down = function(knex) {
     return knex.schema
         .dropTableIfExists('recipe_ingredients')
