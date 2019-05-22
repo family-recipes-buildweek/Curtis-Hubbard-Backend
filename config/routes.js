@@ -59,7 +59,6 @@ function logout(req, res) {
     res.status(500).json({ errorMessage:'Error with trying to Logout' });
   }
 }
-
 function generateToken(user) {
   const payload = {
     subject: user.id,
