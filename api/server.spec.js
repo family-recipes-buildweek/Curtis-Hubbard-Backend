@@ -13,7 +13,7 @@ describe("server.js",()=>{
     })
 })
 describe("ingredientRoute.js",()=>{
-    describe("GET /",()=>{
+    describe("GET /api/ingredient",()=>{
         it("should respond with 200 OK async with done", (done)=>{
             request(server)
                 .get("/api/ingredient")
@@ -23,9 +23,18 @@ describe("ingredientRoute.js",()=>{
                 })
         })
     })
-})
+    describe("POST /api/ingredient",()=>{
+        it("should respond with 201 when posting", ()=>{
+            const newIngredient = {ingredient: "tomato"}
+            return request(server)
+                .post("/api/ingredient")
+                .send(newIngredient)
+                .expect(201)
+                })
+        })
+    })
 describe("categoryRoute.js",()=>{
-    describe("GET /",()=>{
+    describe("GET /api/category",()=>{
         it("should respond with 200 OK async with done", (done)=>{
             request(server)
                 .get("/api/category")
