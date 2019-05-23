@@ -19,7 +19,7 @@ const server = express()
 server.use(express.json())
 server.use(helmet())
 server.use(cors({
-    origin:'http://localhost:3000',
+    origin:'https://team-family-recipes.herokuapp.com',
     credentials:true
     }))
 server.use(urlencoded({ extended: false }))
