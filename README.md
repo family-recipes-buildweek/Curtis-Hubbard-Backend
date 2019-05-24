@@ -6,7 +6,7 @@
 #### Search by categories, by maker, or by recipe. With Secret-Family-Recipes you can organize and find recipes with ease . 
 
 ---
-##### Heroku Deployment Link : `https://devcenter.heroku.com/articles/heroku-cli`
+##### Heroku Deployment Link : `https://secret-family-recipes.netlify.com`
 ---
 
 Used for register and login
