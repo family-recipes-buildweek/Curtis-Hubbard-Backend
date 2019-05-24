@@ -26,13 +26,25 @@ describe("ingredientRoute.js",()=>{
                     expect(response.status).toBe(200)
                     done()
                 })
-        })
+                })
         it("should respond with 201 when posting", ()=>{
             const newIngredient = {ingredient: "tomato"}
             return request(server)
                 .post("/api/ingredient")
                 .send(newIngredient)
                 .expect(201)
+                })
+        })
+        it("should respond with 404 saying no recipe", async ()=>{
+            const newIngredient = {ingredient: "tomato"}
+            const res = await request(server)
+                .post("/api/recipe")
+                .send(newIngredient)
+            const id = res.body[0]
+            return request(server)
+                .delete(`/api/ingredient/${id}`)
+                .then(res=>{
+                    expect(404)
                 })
         })
     })
@@ -107,5 +119,6 @@ describe("sourceRoute.js",()=>{
                 .send(newSource)
                 .expect(201)
         })
+
     })
 })
